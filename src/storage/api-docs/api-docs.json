@@ -1,0 +1,210 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dokumentasi API UAS Laravel",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/lomba": {
+            "get": {
+                "tags": [
+                    "Lomba"
+                ],
+                "summary": "Ambil semua data lomba",
+                "operationId": "5edf192c1065ffdfd3c43ce118e9b3dc",
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data lomba",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nama": {
+                                                "type": "string"
+                                            },
+                                            "tanggal": {
+                                                "type": "string",
+                                                "format": "date"
+                                            },
+                                            "lokasi": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nilai": {
+            "get": {
+                "tags": [
+                    "Nilai"
+                ],
+                "summary": "Ambil semua data nilai peserta",
+                "operationId": "32d9470a4ba5fe89f5ff1b1f847cdbf8",
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data nilai",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "peserta_id": {
+                                                "type": "integer"
+                                            },
+                                            "lomba_id": {
+                                                "type": "integer"
+                                            },
+                                            "skor": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/panitia": {
+            "get": {
+                "tags": [
+                    "Panitia"
+                ],
+                "summary": "Ambil semua data panitia",
+                "operationId": "4f4b09a57e51f283e1829ff5a4579827",
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data panitia",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nama": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "tugas": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/peserta": {
+            "get": {
+                "tags": [
+                    "Peserta"
+                ],
+                "summary": "Ambil semua data peserta",
+                "operationId": "573523137fc0eaaf1c09459476429df0",
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data peserta",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nama": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Lomba",
+            "description": "Lomba"
+        },
+        {
+            "name": "Nilai",
+            "description": "Nilai"
+        },
+        {
+            "name": "Panitia",
+            "description": "Panitia"
+        },
+        {
+            "name": "Peserta",
+            "description": "Peserta"
+        }
+    ]
+}

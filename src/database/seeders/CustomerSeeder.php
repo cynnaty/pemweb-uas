@@ -1,7 +1,5 @@
 <?php
 
-// database/seeders/CustomerSeeder.php
-
 use Illuminate\Database\Seeder;
 use App\Models\Customer;
 

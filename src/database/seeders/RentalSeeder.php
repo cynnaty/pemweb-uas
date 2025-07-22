@@ -1,7 +1,5 @@
 <?php
 
-// database/seeders/RentalSeeder.php
-
 use Illuminate\Database\Seeder;
 use App\Models\Rental;
 

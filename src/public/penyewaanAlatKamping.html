@@ -1,11 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CampEase - Manajemen Sewa Alat Camping</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      /* background: #f2f8f3; */
+      background: url('https://img.freepik.com/premium-photo/camping-gear-essentials-laid-out-nature_198067-108727.jpg') center/cover no-repeat; 
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+
+    header {
+      /* background-color: #216733; */
+      background: url('https://img.freepik.com/premium-photo/camping-gear-essentials-laid-out-nature_198067-108727.jpg') center/cover no-repeat; 
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      font-size: 1.2em;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 35px;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #216733;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #216733;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2f8950;
+    }
+
+    .equipment-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .equipment-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: #fdfdfd;
+    }
+
+    .equipment-item h3 {
+      margin-top: 0;
+      color: #216733;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 200px;
+      background-color: #eaf7ed;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 6px solid #2f8950;
+    }
+
+footer {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9em;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://img.freepik.com/premium-photo/camping-gear-essentials-laid-out-nature_198067-108727.jpg') center/cover no-repeat;
+  filter: blur(50px);
+  z-index: -1;
+  transform: scale(1.05); /* Hindari crop blur di tepi */
+}
+
+    .admin-info {
+      background-color: #f4f9f6;
+      padding: 10px;
+      border-left: 5px solid #216733;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
 <body>
-    
+
+<header>
+  <h1>CampEase</h1>
+  <p>Platform Manajemen Penyewaan Alat Camping</p>
+</header>
+
+<main>
+
+  <!-- SECTION: Formulir Penyewaan -->
+  <section>
+    <h2>Formulir Penyewaan Alat</h2>
+    <form>
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Masukkan nama Anda" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="contoh@email.com" required />
+
+      <label for="alat">Pilih Alat Camping</label>
+      <select id="alat" required>
+        <option value="">-- Pilih alat --</option>
+        <option value="tenda">Tenda 4 Orang - Rp75.000/hari</option>
+        <option value="matras">Matras Tebal - Rp20.000/hari</option>
+        <option value="kompor">Kompor Portable - Rp35.000/hari</option>
+      </select>
+
+      <label for="durasi">Durasi Sewa (hari)</label>
+      <input type="number" id="durasi" min="1" placeholder="Contoh: 2" required />
+
+      <button type="submit">Sewa Sekarang</button>
+    </form>
+  </section>
+
+  <!-- SECTION: Daftar Alat -->
+  <section>
+    <h2>Daftar Alat Camping Tersedia</h2>
+    <div class="equipment-list">
+      <div class="equipment-item">
+        <h3>Tenda 4 Orang</h3>
+        <p><strong>Harga:</strong> Rp75.000/hari</p>
+        <p>Tenda tahan hujan dan angin, cocok untuk keluarga kecil atau grup hiking.</p>
+      </div>
+      <div class="equipment-item">
+        <h3>Matras Tebal</h3>
+        <p><strong>Harga:</strong> Rp20.000/hari</p>
+        <p>Matras nyaman dan tidak licin, cocok untuk tidur di permukaan keras atau dingin.</p>
+      </div>
+      <div class="equipment-item">
+        <h3>Kompor Portable</h3>
+        <p><strong>Harga:</strong> Rp35.000/hari</p>
+        <p>Kompor ringan dan efisien untuk memasak makanan atau membuat kopi di alam bebas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Riwayat Penyewaan -->
+  <section>
+    <h2>Cek Riwayat Penyewaan</h2>
+    <form>
+      <label for="riwayat-email">Masukkan Email Anda</label>
+      <input type="email" id="riwayat-email" placeholder="Email saat sewa alat" required />
+      <button type="submit">Cek Riwayat</button>
+    </form>
+  </section>
+
+  <!-- SECTION: Statistik (simulasi) -->
+  <section>
+    <h2>Statistik & Visualisasi</h2>
+    <div class="stats">
+      <div class="card">
+        <h3>Transaksi Bulan Ini</h3>
+        <p>📦 47 transaksi</p>
+      </div>
+      <div class="card">
+        <h3>Alat Terpopuler</h3>
+        <p>🎪 Tenda 4 Orang</p>
+      </div>
+      <div class="card">
+        <h3>Pendapatan Total</h3>
+        <p>💰 Rp4.350.000</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Admin Info -->
+  <section>
+    <!-- <h2>Informasi Admin & Backend</h2> -->
+    <h2>Contact Me</h2>
+    <div class="admin-info">
+      <p>Ig : <code>raffneptune</code> (raffi.)</p>
+      <!--
+      <p>Admin login dapat dilakukan melalui halaman <code>/admin</code> menggunakan autentikasi Laravel Filament.</p>
+      <p>Dashboard menyediakan fitur CRUD untuk alat, pelanggan, dan transaksi.</p>
+      <p>Backend dibangun dengan Laravel 12 dan berjalan di atas Docker (Nginx + PHP-FPM + MariaDB).</p>
+      <p>API telah disediakan dan dapat diuji menggunakan Postman dengan endpoint seperti: <code>/api/rentals</code>, <code>/api/equipment</code>.</p> 
+      -->
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 CampEase - Dibuat dengan Laravel, Filament, dan Semangat Alam
+</footer>
+
 </body>
 </html>

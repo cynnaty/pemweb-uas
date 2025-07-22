@@ -1,7 +1,5 @@
 <?php
 
-// database/seeders/StaffSeeder.php
-
 use Illuminate\Database\Seeder;
 use App\Models\Staff;
 
